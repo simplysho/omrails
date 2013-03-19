@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Omrails</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= link_to "home", root_path %>
-<%= link_to "about", about_path %>
-
-<%= yield %>
-
-<div class="footer">
-
-<small>hello first page</small> 
-</div>
-
-</body>
+	<head>
+	  <title>Omrails</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<%= render 'layouts/header' %>
+	<div class="container">	
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+	</div>
+	
+	</body>
 </html>
