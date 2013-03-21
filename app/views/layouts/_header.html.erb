@@ -11,16 +11,25 @@
     </a>
      
     <!-- Be sure to leave the brand out there if you want it shown -->
-    <a class="brand" href="#">My first navbar</a>
+    <!--<a class="brand" href="#">My first navbar</a> swtiched out-->
+    <%= link_to "toastagram", root_path, class: "brand" %>
      
     <!-- Everything you want hidden at 940px or less, place within here -->
     <div class="nav-collapse collapse">
-    <ul class="nav">
-    <li> <%= link_to "home", root_path %> </li>
-	<li> <%= link_to "about", about_path %> </li>
+       <ul class="nav">
+       <li> <%= link_to "home", root_path %> </li>
+	     <li> <%= link_to "about", about_path %> </li>
     </ul>
     <ul class="nav pull-right">
-    <li> <%= link_to "login", '#' %> </li>
+      <% if user_signed_in? %>
+        <li><%= link_to "edit toastfile", edit_user_registration_path %></li>
+          <!-- added to for edit profile section, could take out --> 
+
+        <li> <%= link_to "sign out", destroy_user_session_path, 
+        method: :delete %></li>
+      <% else %>  <!-- if user is not signed in already -->
+      <li> <%= link_to "sign in", new_user_session_path %></li>
+    <% end %>
     </ul>
     </div>
 

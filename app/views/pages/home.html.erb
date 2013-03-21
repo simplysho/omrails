@@ -1,7 +1,19 @@
-<div class="center hero-unit">
-    <h1>Welcome! </h1>
-    <p>to <%= link_to 'Tostah',  "http://onemonthrails.com" %>
+<!-- added this user signed in script to determine whether user is logged in or not -->
+<% if user_signed_in? %>
+	<div class="center hero-unit">
+    <h1>you're on toastagram</h1>
+    <p></p>
+    	<p>by <%= link_to 'simplysho',  "http://simplysho.tumblr.com" %>
      </p>
+ </div>
+<% else %>
 
-    <p> <%= link_to 'Sign up now!',  "#" , class: "btn btn-large btn-warning" %> </p>
-</div>
+	<div class="center hero-unit">
+	    <h1>toastagram</h1>
+	    <P></p>
+	    	<p>by <%= link_to 'simplysho',  "http://simplysho.tumblr.com" %>
+	     </p>
+
+	    <p> <%= link_to 'Sign up now!', new_user_registration_path , class: "btn btn-large btn-warning" %> </p>
+	</div>
+<% end %>
