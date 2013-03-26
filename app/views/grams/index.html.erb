@@ -1,0 +1,20 @@
+<h1>your grams</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>messages</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @grams %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Gram', new_gram_path %>
