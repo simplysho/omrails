@@ -5,7 +5,7 @@
   			<%= @gram.description %>
   		</P>
   		<p>
-  			<%= @gram.user.name %> <!-- added to show name under each gram description-->
+  			<%= @gram.user.name %>
   		</P>
   		<% if current_user == @gram.user %>
 				<%= link_to 'Edit', edit_gram_path(@gram) %> |
