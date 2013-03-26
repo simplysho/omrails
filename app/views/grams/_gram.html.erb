@@ -1,6 +1,11 @@
 <tr>
    <td><%= gram.description %></td>
-   <td><%= link_to 'Show', gram %></td>
-   <td><%= link_to 'Edit', edit_gram_path(gram) %></td>
-   <td><%= link_to 'Destroy', gram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   <td><%= link_to 'show toast', gram %></td>
+   <!-- only should reveal edit and destory to actual signed in users so adding in this code-->
+   
+   <% if current_user == gram.user %>
+
+   <td><%= link_to 'add butter', edit_gram_path(gram) %></td>
+   <td><%= link_to 'trash it', gram, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   <% end %>
 </tr>    

@@ -1,8 +1,11 @@
 class GramsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]   #method devise gave us to authenticate user
+
+
   # GET /grams
   # GET /grams.json
   def index
-    @grams = Gram.all
+    @grams = Gram.all #if we wanted to make an app so that user can only see their own pin make = current_user.pins.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +27,7 @@ class GramsController < ApplicationController
   # GET /grams/new
   # GET /grams/new.json
   def new
-    @gram = Gram.new
+    @gram = current_user.grams.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,13 @@ class GramsController < ApplicationController
 
   # GET /grams/1/edit
   def edit
-    @gram = Gram.find(params[:id])
+    @gram = current_user.grams.find(params[:id])
   end
 
   # POST /grams
   # POST /grams.json
   def create
-    @gram = Gram.new(params[:gram])
+    @gram = current_user.grams.new(params[:gram])
 
     respond_to do |format|
       if @gram.save
@@ -56,7 +59,7 @@ class GramsController < ApplicationController
   # PUT /grams/1
   # PUT /grams/1.json
   def update
-    @gram = Gram.find(params[:id])
+    @gram = current_user.grams.find(params[:id])
 
     respond_to do |format|
       if @gram.update_attributes(params[:gram])
@@ -72,7 +75,7 @@ class GramsController < ApplicationController
   # DELETE /grams/1
   # DELETE /grams/1.json
   def destroy
-    @gram = Gram.find(params[:id])
+    @gram = current_user.grams.find(params[:id])
     @gram.destroy
 
     respond_to do |format|
