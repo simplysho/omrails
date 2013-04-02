@@ -22,7 +22,7 @@
     </ul>
     <ul class="nav pull-right">
       <% if user_signed_in? %>
-        <li><%= link_to "edit toastfile", edit_user_registration_path %></li>
+        <li><%= link_to "edit profile", edit_user_registration_path %></li>
           <!-- added to for edit profile section, could take out --> 
 
         <li> <%= link_to "sign out", destroy_user_session_path, 

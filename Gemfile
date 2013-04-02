@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 gem 'jquery-rails'
 gem 'devise' #added devise which allows for user sign in, profiles etc 
 gem 'simple_form' #added to make simple forms
+gem "paperclip", "~> 3.0"
 
 group :production do
 	gem 'pg'

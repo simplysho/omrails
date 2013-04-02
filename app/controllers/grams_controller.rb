@@ -5,7 +5,7 @@ class GramsController < ApplicationController
   # GET /grams
   # GET /grams.json
   def index
-    @grams = Gram.all #if we wanted to make an app so that user can only see their own pin make = current_user.pins.all
+    @grams = Gram.all #if we wanted to make an app so that user can only see their own pin make = current_user.pins.all if not Gram.all
 
     respond_to do |format|
       format.html # index.html.erb
